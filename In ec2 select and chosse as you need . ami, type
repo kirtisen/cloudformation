@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: we are launch Instance 
+Parameters:
+  Instancetype:
+    Type: String
+    AllowedValues:
+      - t2.micro
+      - m1.small
+      - m1.large
+    Description: please select t2.micro only
+  imagename:
+    Type: String
+    AllowedValues:
+     - ami-00c39f71452c08778
+     - ami-016eb5d644c333ccb
+     - ami-02978b79564e08f2f
+    Description: Please select anyone imageID
+Resources:
+  MyEc2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: !Ref imagename
+      InstanceType: !Ref Instancetype
+
+      Tags:
+        - Key: "Name"    
+          Value: "Production"
