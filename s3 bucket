@@ -1,0 +1,9 @@
+Parameters:
+  s3bucketname:
+    Type: String
+Resources:
+  datas3:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    Properties:
+      BucketName: !Ref s3bucketname
